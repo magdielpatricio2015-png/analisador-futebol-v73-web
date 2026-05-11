@@ -105,6 +105,7 @@ st.set_page_config(
     layout="centered",
 )
 
+# Estilos base + responsivo para celular
 st.markdown("""
 <style>
     .main-title {font-size: 34px; font-weight: 800; margin-bottom: 0;}
@@ -117,6 +118,36 @@ st.markdown("""
         background: #fafafa;
     }
     .small-muted {color: #666; font-size: 14px;}
+
+    /* ===== RESPONSIVO: ajustes para celular ===== */
+    @media (max-width: 640px) {
+        /* Empilha colunas (campeonato e botão sair) */
+        div[data-testid="stHorizontalBlock"] {
+            flex-direction: column !important;
+        }
+        /* Métricas mais compactas */
+        div[data-testid="stMetric"] {
+            font-size: 14px;
+        }
+        /* Cartões mais enxutos */
+        .card {
+            padding: 10px !important;
+        }
+        .card h3 {
+            font-size: 16px !important;
+        }
+        /* Botões ocupam largura total */
+        div[data-testid="stVerticalBlock"] div[data-testid="stHorizontalBlock"] button {
+            width: 100% !important;
+        }
+        /* Reduz título principal */
+        .main-title {
+            font-size: 24px !important;
+        }
+        .sub-title {
+            font-size: 14px !important;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
